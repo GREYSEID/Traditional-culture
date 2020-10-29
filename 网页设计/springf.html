@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>节日</title>
+		<link rel="stylesheet" href="show.css" />
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+	</head>
+	<body style="margin: 0 auto;" onload="decidetitle()">
+		<div id="day"></div>
+		<script src="state.js"></script>
+		<script src="showui.js"></script>
+		<script>
+			function decidetitle() {
+				let search = location.search;
+				let string = search.split("=")[1];
+				let z = string ? parseInt(string) : 0;
+				document.title = state.imformation[z].name;
+				console.log(state.imformation[z].name);
+			}
+		</script>
+	</body>
+</html>

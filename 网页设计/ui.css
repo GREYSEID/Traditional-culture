@@ -1,0 +1,123 @@
+.world {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	position: relative;
+}
+
+.square {
+	width: 300px;
+	height: 300px;
+	margin: 50px;
+	position: relative;
+	overflow: hidden;
+	color: aliceblue;
+}
+
+
+.square:hover .backcontent {
+	opacity: 1;
+	transform: translateY(300px);
+}
+
+.square .backcontent {
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(207, 207, 207, 0.3);
+	top: -300px;
+	position: absolute;
+	left: 0;
+	transition: transform 1s, opacity 1s, all 1s;
+	overflow: hidden;
+}
+
+.square:hover .backpicture {
+	opacity: 0.7;
+	filter: blur(2px);
+}
+
+.square .backpicture {
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -2;
+	opacity: 1;
+	filter: blur(0px);
+	transition: opacity 1s, filter 1s, all 1s;
+}
+
+.square img {
+	width: 10%;
+	height: 10%;
+}
+
+.title {
+	width: 100%;
+	height: 30%;
+	position: relative;
+	overflow: hidden;
+	font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+	/*background-color: rgba(232, 224, 218,.5);*/
+	font-size: 8em;
+	display: flex;
+	justify-content: center;
+}
+.titlepicture{
+	width: 100%;
+	height: 100%;
+	background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604387568&di=d6fe810ce1f32ea4109de68f7c2c5a2a&imgtype=jpg&er=1&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180928%2F628480c8a4a74795ae2ee65685feb0c4.jpeg");
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-size: 100% 100%;
+	z-index: -1;
+	filter: blur(2px);
+}
+.titlestyle {
+	overflow: hidden;
+	color: lightgrey;
+	font-weight: 900;
+	position: absolute;
+	z-index: 1;
+}
+
+.titlestyle:hover {
+	text-shadow: lightgoldenrodyellow;
+}
+
+.titlestyle::before {
+	content: attr(data-title);
+	position: absolute;
+	width: 0%;
+	z-index: 2;
+	overflow: hidden;
+	color: #ed1941;
+	transition: width 1s;
+	white-space: nowrap;
+}
+
+.titlestyle:hover::before {
+	width: 100%;
+}
+
+.titlestyle::after{
+	content:"";
+	height: 20px;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	background-color: #fdb933;
+	transform: translate3d(-100%,0,0);
+	transition: transform 1s;
+	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+.titlestyle:hover::after{
+	transform: translate3d(100%,0,0);
+}
+.word {}
